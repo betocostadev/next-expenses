@@ -36,3 +36,9 @@ model Transaction {
 
   @@index([userId])
 }
+
+// After creating or changing this, use the command:
+// npx prisma generate
+
+// To create the migrations
+// npx prisma migrate dev
