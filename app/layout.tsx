@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google'
 // import localFont from 'next/font/local'
 import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
+import Header from '@/components/Header'
 
 const roboto = Roboto({ weight: '300', subsets: ['latin'] })
 
@@ -31,7 +32,10 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         {/* <body className={`${geistSans.variable} ${geistMono.variable}`}> */}
-        <body className={`${roboto.className}`}>{children}</body>
+        <body className={`${roboto.className}`}>
+          <Header />
+          <main className="container">{children}</main>
+        </body>
       </html>
     </ClerkProvider>
   )
