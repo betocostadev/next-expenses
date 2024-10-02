@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 // import localFont from 'next/font/local'
 import './globals.css'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const roboto = Roboto({ weight: '300', subsets: ['latin'] })
 
@@ -27,9 +28,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      {/* <body className={`${geistSans.variable} ${geistMono.variable}`}> */}
-      <body className={`${roboto.className}`}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        {/* <body className={`${geistSans.variable} ${geistMono.variable}`}> */}
+        <body className={`${roboto.className}`}>{children}</body>
+      </html>
+    </ClerkProvider>
   )
 }
